@@ -155,6 +155,7 @@ function generatePostedArticlePayload(calendarEntry) {
   return {
     'username': calendarEntry.custom.botName,
     'icon_emoji': calendarEntry.custom.iconEmoji,
+    "unfurl_links": true, "unfurl_media": true, // リンク先の記事のプレビューを表示
     'blocks': blocks
   };
 }

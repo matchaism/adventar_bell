@@ -48,17 +48,10 @@ jobs:
       - name: Create .clasp.json
         run: bash setup_clasp.sh
 
-      - name: ls
-        run: |
-          ls -l
-          ls -l src/
-
       - name: Clasp Push
-        working-directory: ./src
         run: |
           clasp push
 
       - name: Deploy
-        working-directory: ./src
         run: |
           clasp deploy --deploymentId $DEPLOYMENT_ID

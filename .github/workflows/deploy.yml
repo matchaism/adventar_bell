@@ -54,11 +54,11 @@ jobs:
           ls -l src/
 
       - name: Clasp Push
+        working-directory: src
         run: |
-          cd src
           clasp push --force
 
       - name: Deploy
+        working-directory: src
         run: |
-          cd src
           clasp deploy --deploymentId $DEPLOYMENT_ID

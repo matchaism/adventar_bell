@@ -48,7 +48,12 @@ jobs:
       - name: Create .clasp.json
         run: bash setup_clasp.sh
 
-      - name: Clasp Push
+      - name: ls
+        run: |
+          ls -l
+          ls -l src/
+
+          - name: Clasp Push
         run: |
           cd src
           clasp push --force

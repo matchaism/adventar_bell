@@ -33,9 +33,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: 'latest'
 
       - name: Install Clasp
         run: |
@@ -49,9 +49,7 @@ jobs:
         run: bash setup_clasp.sh
 
       - name: Clasp Push
-        run: |
-          clasp push --force
+        run: clasp push --force
 
-      - name: Deploy
-        run: |
-          clasp deploy --deploymentId $DEPLOYMENT_ID
+      - name: Clasp Deploy
+        run: clasp deploy --deploymentId $DEPLOYMENT_ID

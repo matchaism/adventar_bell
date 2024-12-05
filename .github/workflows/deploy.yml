@@ -1,0 +1,58 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - deploy
+    paths:
+      - src/**
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    env:
+      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+      SCOPE: ${{ secrets.SCOPE }}
+      TOKEN_TYPE: ${{ secrets.TOKEN_TYPE }}
+      ID_TOKEN: ${{ secrets.ID_TOKEN }}
+      EXPIRY_DATE: ${{ secrets.EXPIRY_DATE }}
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
+      IS_LOCAL_CREDS: ${{ secrets.IS_LOCAL_CREDS }}
+      DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}
+      SCRIPT_ID: ${{ secrets.SCRIPT_ID }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - name: Install Clasp
+        run: |
+          npm init -y
+          npm install clasp -g
+
+      - name: Create .clasprc.json
+        run: bash setup_clasprc.sh
+
+      - name: Create .clasp.json
+        run: bash setup_clasp.sh
+
+      - name: Clasp Push
+        run: |
+          cd src
+          clasp push --force
+
+      - name: Deploy
+        run: |
+          cd src
+          clasp deploy --deploymentId $DEPLOYMENT_ID

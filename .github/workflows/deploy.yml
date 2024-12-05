@@ -50,7 +50,7 @@ jobs:
 
       - name: Clasp Push
         run: |
-          clasp push
+          clasp push --force
 
       - name: Deploy
         run: |

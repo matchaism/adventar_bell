@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - deploy
+      - develop
     paths:
       - src/**
   workflow_dispatch:

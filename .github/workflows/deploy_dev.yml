@@ -1,9 +1,9 @@
-name: deploy
+name: deploy_dev
 
 on:
   push:
     branches:
-      - deploy # 'develop' or 'deploy'
+      - develop # 'develop' or 'deploy'
     paths:
       - src/**
   workflow_dispatch:
@@ -11,7 +11,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: deploy # 'develop' or 'deploy'
+    environment: develop # 'develop' or 'deploy'
     timeout-minutes: 15
 
     env:

@@ -29,10 +29,8 @@ function main() {
       Logger.log(payloads);
       // 投稿があれば通知
       for (let i = 0; i < payloads.length; i++) {
-        if (payloads[i] !== null) {
-          slack.postToWebhook(config.SLACK_WEBHOOK_URL, payloads[i]);
-          Utilities.sleep(1000); // 1秒待機 (Slackのレート制限:1 per second)
-        }
+        slack.postToWebhook(payloads[i]);
+        Utilities.sleep(1000); // 1秒待機 (Slackのレート制限:1 per second)
       }
     }
 

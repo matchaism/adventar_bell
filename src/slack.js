@@ -28,7 +28,8 @@ const slack = {
   },
 
   // WebhookにPOSTリクエストを送信
-  postToWebhook: function(url, payload) {
+  postToWebhook: function(payload) {
+    const url = config.SLACK_WEBHOOK_URL;
     const options = {
       'method': 'post',
       'contentType': 'application/json',

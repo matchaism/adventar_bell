@@ -43,7 +43,7 @@ function main() {
       Logger.log(payloads);
       // 投稿があれば通知
       for (let i = 0; i < payloads.length; i++) {
-        discord.postToWebhook(config.DISCORD_WEBHOOK_URL, payloads[i]);
+        discord.postToWebhook(payloads[i]);
         Utilities.sleep(500); // 0.5秒待機 (Discordのレート制限:2 per second)
       }
     }

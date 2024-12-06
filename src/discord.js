@@ -21,7 +21,8 @@ const discord = {
 
   // WebhookにPOSTリクエストを送信
   // Slackと同じ
-  postToWebhook: function(url, payload) {
+  postToWebhook: function(payload) {
+    const url = config.DISCORD_WEBHOOK_URL;
     const options = {
       'method': 'post',
       'contentType': 'application/json',

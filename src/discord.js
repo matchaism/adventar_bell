@@ -6,7 +6,7 @@ const discord = {
       // 新しい投稿があるか
       if (calendarEntry.calendarStatus[i] === 'posted') {
         // 投稿メッセージを作成
-        const message = `${calendarEntry.authors[i]} posted [Day ${i + 1} Article](${calendarEntry.articles[i]})!!`;
+        const message = `${calendarEntry.authors[i]} posted Day ${i + 1} Article!!\r${calendarEntry.articles[i]}`;
         // ペイロードを作成
         payloads.push({
           'username': calendarEntry.custom.botName,

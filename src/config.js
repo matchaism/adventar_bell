@@ -4,5 +4,5 @@ const config = {
   SHEET_NAME: PropertiesService.getScriptProperties().getProperty('sheet_name'), // シートの名前
   // WebhookのURL
   SLACK_WEBHOOK_URL: PropertiesService.getScriptProperties().getProperty('slack_webhook_url'),
-  Discord_WEBHOOK_URL: PropertiesService.getScriptProperties().getProperty('discord_webhook_url'),
+  DISCORD_WEBHOOK_URL: PropertiesService.getScriptProperties().getProperty('discord_webhook_url'),
 }

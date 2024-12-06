@@ -36,5 +36,19 @@ function main() {
       }
     }
 
+    // Discord
+    if (config.Discord_WEBHOOK_URL !== null) {
+      // 投稿があれば通知用のペイロードを生成
+      const payloads = discord.generatePostedArticlePayloads(calendarDifference);
+      Logger.log(payloads);
+      // 投稿があれば通知
+      for (let i = 0; i < payloads.length; i++) {
+        if (payloads[i] !== null) {
+          discord.postToWebhook(config.Discord_WEBHOOK_URL, payloads[i]);
+          Utilities.sleep(500); // 0.5秒待機 (Slackのレート制限:2 per second)
+        }
+      }
+    }
+
   }
 }

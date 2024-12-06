@@ -1,7 +1,7 @@
 function main() {
   // スプレッドシートを取得
   const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = spreadsheet.getSheetByName(config.YEAR.toString());
+  const sheet = spreadsheet.getSheetByName(config.SHEET_NAME);
   const dataRange = sheet.getDataRange();
   const data = dataRange.getValues();
 

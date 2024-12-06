@@ -6,11 +6,11 @@ const discord = {
       // 新しい投稿があるか
       if (calendarEntry.calendarStatus[i] === 'posted') {
         // 投稿メッセージを作成
-        const message = `${calendarEntry.authors[i]} posted <${calendarEntry.articles[i]}|Day ${i + 1} Article>!!`
+        const message = `${calendarEntry.authors[i]} posted [Day ${i + 1} Article](${calendarEntry.articles[i]})!!`;
         // ペイロードを作成
         payloads.push({
           'username': calendarEntry.custom.botName,
-          //'icon_emoji': calendarEntry.custom.iconEmoji, -> avatar_url?
+          //'avatar_url': , // override the default avatar of the webhook
           'content': message
         });
       }
@@ -20,6 +20,7 @@ const discord = {
   },
 
   // WebhookにPOSTリクエストを送信
+  // Slackと同じ
   postToWebhook: function(url, payload) {
     const options = {
       'method': 'post',

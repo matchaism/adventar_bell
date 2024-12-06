@@ -22,11 +22,14 @@ function main() {
     // スプレッドシートを更新
     adventarBell.updateSpreadsheet(sheet, i + 1, calendarDifference);
 
-    // 投稿があれば通知用のペイロードを生成
-    const payload = slack.generatePostedArticlePayload(calendarDifference);
-    Logger.log(payload);
+    // Slack
+    if (config.SLACK_WEBHOOK_URL !== null) {
+      // 投稿があれば通知用のペイロードを生成
+      const payload = slack.generatePostedArticlePayload(calendarDifference);
+      Logger.log(payload);
+      // 投稿があれば通知
+      if (payload !== null) slack.postToWebhook(config.SLACK_WEBHOOK_URL, payload);
+    }
 
-    // 投稿があれば通知
-    if (payload !== null) slack.postToWebhook(payload);
   }
 }

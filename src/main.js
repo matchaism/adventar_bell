@@ -25,10 +25,12 @@ function main() {
     // Slack
     if (config.SLACK_WEBHOOK_URL !== null) {
       // 投稿があれば通知用のペイロードを生成
-      const payload = slack.generatePostedArticlePayload(calendarDifference);
-      Logger.log(payload);
+      const payloads = slack.generatePostedArticlePayloads(calendarDifference);
+      Logger.log(payloads);
       // 投稿があれば通知
-      if (payload !== null) slack.postToWebhook(config.SLACK_WEBHOOK_URL, payload);
+      for (let i = 0; i < payloads.length; i++) {
+        if (payloads[i] !== null) slack.postToWebhook(config.SLACK_WEBHOOK_URL, payloads[i]);
+      }
     }
 
   }

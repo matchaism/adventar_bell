@@ -32,6 +32,6 @@ const slack = {
       'payload': JSON.stringify(payload)
     };
     // post
-    UrlFetchApp.fetch(config.WEBHOOK_URL, options);
+    UrlFetchApp.fetch(config.SLACK_WEBHOOK_URL, options);
   },
 }

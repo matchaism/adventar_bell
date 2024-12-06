@@ -24,7 +24,6 @@ const slack = {
       }
     }
 
-    if (payloads.length === 0) return null; // 投稿がなければペイロードは作成しない
     return payloads;
   },
 

@@ -8,7 +8,7 @@ const adventarBell = {
       this.articles = Array(config.DAYS_IN_CALENDAR); // 各日の記事URL
       this.custom = {
         'botName': title,
-        'iconEmoji': ':christmas_tree:' // デフォルトアイコン
+        'slackIconEmoji': ':christmas_tree:' // デフォルトアイコン
       };
     }
   },
@@ -28,7 +28,7 @@ const adventarBell = {
     }
 
     // カスタムアイコンの設定
-    if (row[row.length - 1].length >= 3) calendarEntry.custom.iconEmoji = row[row.length - 1];
+    if (row[row.length - 1].length >= 3) calendarEntry.custom.slackIconEmoji = row[row.length - 1];
 
     return calendarEntry;
   },

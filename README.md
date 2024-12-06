@@ -43,6 +43,15 @@
 |clasp|`ACCESS_TOKEN`, `REFRESH_TOKEN`, `SCOPE`, `TOKEN_TYPE`, `ID_TOKEN`, `EXPIRY_DATE`, `CLIENT_ID`, `CLIENT_SECRET`, `REDIRECT_URI`, `IS_LOCAL_CREDS`|
 |Apps Script|`DEPLOYMENT_ID`, `SCRIPT_ID`|
 
+## 開発
+
+- ローカルでコーディング
+- developブランチでcommit&push
+  - 上記自動化により自動デプロイ (ワークフロー: [deploy_dev.yml](.github/workflows/deploy_dev.yml)，developブランチへのpushがトリガー)
+  - 開発専用スプレッドシート&GASに`clasp push`&`clasp deploy`
+- 必要に応じて実験したいときはブランチを切り，専用ブランチでcommit&push，および手動で[deploy_dev.yml](.github/workflows/deploy_dev.yml)によるデプロイを実行
+- 開発が終わったら，develop(とか)->mainのmerge，main->deployのmergeでデプロイへ
+
 ## License
 
 This package is open-sourced software licensed under the [MIT license](https://choosealicense.com/licenses/mit/).

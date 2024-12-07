@@ -52,15 +52,12 @@ const adventarBell = {
       const articleLink = $(this).find('div.article > div.left > div.link > a').attr('href');
 
       // 記録
-      if (typeof articleLink === 'undefined') {
-        // 登録されているが、記事が投稿されていない
+      calendarEntry.authors[day - 1] = author;
+      calendarEntry.articles[day - 1] = articleLink;
+      if (typeof articleLink === 'undefined') { // 登録されているが、記事が投稿されていない
         calendarEntry.calendarStatus[day - 1] = 'registered';
-        calendarEntry.authors[day - 1] = author;
-      } else {
-        // 記事が投稿されている
+      } else { // 記事が投稿されている
         calendarEntry.calendarStatus[day - 1] = 'posted';
-        calendarEntry.authors[day - 1] = author;
-        calendarEntry.articles[day - 1] = articleLink;
       }
     });
 

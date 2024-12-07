@@ -18,7 +18,7 @@ const slack = {
         payloads.push({
           'username': calendarEntry.custom.botName,
           'icon_emoji': calendarEntry.custom.slackIconEmoji,
-          "unfurl_links": true, "unfurl_media": true, // リンク先の記事のプレビューを表示
+          'unfurl_links': true, 'unfurl_media': true, // リンク先の記事のプレビューを表示
           'blocks': [block]
         });
       }

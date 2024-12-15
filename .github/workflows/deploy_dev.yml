@@ -49,7 +49,7 @@ jobs:
         run: bash setup_clasp.sh
 
       - name: Clasp Push
-        run: clasp push --force
+        run: clasp push --force --watch
 
       - name: Clasp Deploy
         run: clasp deploy --deploymentId $DEPLOYMENT_ID

@@ -34,6 +34,7 @@
  2. deployブランチにpush，または手動で実行([Actions](./actions/))
  3. GitHub Actionsによるデプロイが自動で進行
     - 内部では，`clasp push --force`と`clasp deploy --deploymentId $DEPLOYMENT_ID`を実行
+    - TypeScriptは`.gs`にコンパイル・変換される
  4. GAS側の定期実行が必要なら，別途設定
 
 ### 認証情報
@@ -46,9 +47,11 @@
 ## 開発
 
 - ローカルでコーディング
+  - 手元でコンパイルしたいなら`npm run build`
 - developブランチでcommit&push
   - 上記自動化により自動デプロイ (ワークフロー: [deploy_dev.yml](.github/workflows/deploy_dev.yml)，developブランチへのpushがトリガー)
   - 開発専用スプレッドシート&GASに`clasp push`&`clasp deploy`
+  - TypeScriptは`.gs`にコンパイル・変換される
 - 必要に応じて実験したいときはブランチを切り，専用ブランチでcommit&push，および手動で[deploy_dev.yml](.github/workflows/deploy_dev.yml)によるデプロイを実行
 - 開発が終わったら，develop(とか)->mainのmerge，main->deployのmergeでデプロイへ
 

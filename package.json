@@ -1,0 +1,22 @@
+{
+  "name": "adventar_bell",
+  "version": "3.0.0",
+  "description": "[![adventar](https://img.shields.io/badge/adventar-D35F4A.svg)](https://adventar.org/) [![Google Sheets](https://img.shields.io/badge/Google%20Sheets-gray.svg?logo=googlesheets)](https://www.google.com/intl/ja_jp/sheets/about/) [![Google Apps Script](https://img.shields.io/badge/Google%20Apps%20Script-gray.svg?logo=googleappsscript)](https://script.google.com/) [![slack](https://img.shields.io/badge/slack-gray.svg?logo=slack)](https://slack.com/) [![discord](https://img.shields.io/badge/discord-gray.svg?logo=discord)](https://discord.com/) [![clasp](https://img.shields.io/badge/deploy%20with-clasp-4285f4.svg)](https://github.com/google/clasp) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rm": "rm -rf dst",
+    "compile": "npx tsc",
+    "build": "npm run rm && npm run compile && cp src/appsscript.json dst/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "@types/google-apps-script": "^1.0.86",
+    "typescript": "^5.7.2"
+  }
+}

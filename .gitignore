@@ -3,3 +3,5 @@
 *.swp
 local/
 .clasprc.json
+node_modules/
+dst/

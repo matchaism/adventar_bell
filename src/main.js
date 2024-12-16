@@ -28,8 +28,8 @@ function main() {
       const payloads = slack.generatePostedArticlePayloads(calendarDifference);
       Logger.log(payloads);
       // 投稿があれば通知
-      for (let i = 0; i < payloads.length; i++) {
-        slack.postToWebhook(payloads[i]);
+      for (let j = 0; j < payloads.length; j++) {
+        slack.postToWebhook(payloads[j]);
         Utilities.sleep(1000); // 1秒待機 (Slackのレート制限:1 per second)
       }
     }
@@ -40,8 +40,8 @@ function main() {
       const payloads = discord.generatePostedArticlePayloads(calendarDifference);
       Logger.log(payloads);
       // 投稿があれば通知
-      for (let i = 0; i < payloads.length; i++) {
-        discord.postToWebhook(payloads[i]);
+      for (let j = 0; j < payloads.length; j++) {
+        discord.postToWebhook(payloads[j]);
         Utilities.sleep(500); // 0.5秒待機 (Discordのレート制限:2 per second)
       }
     }

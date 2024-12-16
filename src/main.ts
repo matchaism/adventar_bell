@@ -1,8 +1,3 @@
-import * as config from "./config";
-import * as adventarBell from "./adventar_bell";
-import * as slack from "./slack";
-import * as discord from "./discord";
-
 function main(): void {
   // スプレッドシートを取得
   const spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
